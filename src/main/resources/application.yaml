@@ -1,0 +1,43 @@
+server: # 서버 설정
+  port: 80
+
+spring: # 스프링 설정
+  application:
+    name: spring-shop
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+
+  jpa: # JPA 설정
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy # 카멜케이스를 언더스코어로 변환
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect # MySQL 8.0
+    open-in-view: true # JPA 영속성 컨텍스트를 View까지 유지
+    properties:
+      hibernate:
+        format_sql: true # SQL 예쁘게 출력
+
+  datasource: # 데이터베이스 연결 설정
+    url: jdbc:mysql://localhost:3306/shop?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: shop
+    password: shop
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace # SQL 로그 출력

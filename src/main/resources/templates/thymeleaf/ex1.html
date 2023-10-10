@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/layout1}">
+
+<div layout:fragment="content">
+    <div>
+        상품명 : <span th:text="${itemDto.itemNm}"></span>
+    </div>
+    <div>
+        상품 상태 : <span th:text="${itemDto.itemSellStatus}"></span>
+    </div>
+    <div>
+        상세설명 : <span th:text="${itemDto.itemDetail}"></span>
+    </div>
+    <div>
+        가격 : <span th:text="${itemDto.price}">fdf</span>
+    </div> </div>
+
+
+</html>
