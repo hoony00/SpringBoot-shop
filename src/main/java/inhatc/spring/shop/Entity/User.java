@@ -1,4 +1,4 @@
-package inhatc.spring.shop.entity;
+package inhatc.spring.shop.Entity;
 
 import jakarta.persistence.*;
 

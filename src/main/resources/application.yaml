@@ -8,6 +8,12 @@ spring: # 스프링 설정
     cache: false
     prefix: classpath:/templates/
 
+
+  security:
+    user:
+      name: test
+      password: 1111
+
   jpa: # JPA 설정
     hibernate:
       ddl-auto: update
@@ -21,9 +27,9 @@ spring: # 스프링 설정
         format_sql: true # SQL 예쁘게 출력
 
   datasource: # 데이터베이스 연결 설정
-    url: jdbc:mysql://localhost:3306/shop?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
-    username: shop
-    password: shop
+    url: jdbc:mysql://localhost:3306/portfolio?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: portfolio
+    password: portfolio
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   devtools:
@@ -34,6 +40,7 @@ spring: # 스프링 설정
 
 
 
+
 logging:
   level:
     org:
@@ -41,3 +48,6 @@ logging:
         type:
           descriptor:
             sql: trace # SQL 로그 출력
+
+
+

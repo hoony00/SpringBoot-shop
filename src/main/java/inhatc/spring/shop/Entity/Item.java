@@ -1,6 +1,6 @@
-package inhatc.spring.shop.entity;
+package inhatc.spring.shop.Entity;
 
-import inhatc.spring.shop.constant.ItemSellStatus;
+import inhatc.spring.shop.Content.ItemSellStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -8,13 +8,15 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
-@Entity
+
+
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 public class Item {
 
     @Id
