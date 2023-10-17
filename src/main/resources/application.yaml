@@ -27,9 +27,9 @@ spring: # 스프링 설정
         format_sql: true # SQL 예쁘게 출력
 
   datasource: # 데이터베이스 연결 설정
-    url: jdbc:mysql://localhost:3306/portfolio?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
-    username: portfolio
-    password: portfolio
+    url: jdbc:mysql://localhost:3306/shop?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: shop
+    password: shop
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   devtools:

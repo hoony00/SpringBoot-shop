@@ -1,6 +1,6 @@
 package inhatc.spring.shop.repository;
 
-import inhatc.spring.shop.entity.Item;
+import inhatc.spring.shop.Entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -3,15 +3,16 @@ package inhatc.spring.shop.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
-@ToString
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+public class MemberFormDto {
 
-    private int age;
     private String name;
+    private String email;
+    private String password;
+    private String address;
+
 
 }
