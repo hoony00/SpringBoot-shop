@@ -8,6 +8,12 @@ spring: # 스프링 설정
     cache: false
     prefix: classpath:/templates/
 
+
+  security:
+    user:
+      name: test
+      password: 1111
+
   jpa: # JPA 설정
     hibernate:
       ddl-auto: update
@@ -34,6 +40,7 @@ spring: # 스프링 설정
 
 
 
+
 logging:
   level:
     org:
@@ -41,3 +48,6 @@ logging:
         type:
           descriptor:
             sql: trace # SQL 로그 출력
+
+
+
