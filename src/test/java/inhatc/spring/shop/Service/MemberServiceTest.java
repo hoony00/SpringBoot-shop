@@ -46,6 +46,5 @@ class MemberServiceTest {
         });
         Assertions.assertEquals("이미 존재하는 회원입니다", e.getMessage());
 
-
     }
 }
