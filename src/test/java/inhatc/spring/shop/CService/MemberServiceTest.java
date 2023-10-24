@@ -1,4 +1,4 @@
-package inhatc.spring.shop.Service;
+package inhatc.spring.shop.CService;
 
 import inhatc.spring.shop.Entity.Member;
 import inhatc.spring.shop.dto.MemberFormDto;

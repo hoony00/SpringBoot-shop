@@ -7,7 +7,7 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.3'
+    id 'org.springframework.boot' version '3.1.5'
     id 'io.spring.dependency-management' version '1.1.3'
 }
 
@@ -52,6 +52,10 @@ dependencies {
 
 // Spring Boot 애플리케이션의 테스트를 지원하기 위한 테스트 종속성입니다.
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // validation 추가 - Spring Boot 애플리케이션에서 Bean Validation을 사용하는 데 필요한 종속성입니다.
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 
 
     // security 추가 - Spring Boot 애플리케이션에서 보안 및 사용자 인증 및 권한 관리를 위한 종속성입니다.
