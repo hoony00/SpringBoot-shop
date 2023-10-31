@@ -25,14 +25,19 @@ public class SecurityConfig {
                 .permitAll() //모든 사용자가 접근할 수 있음
         ); //formLogin
 
+
         http.logout(Customizer.withDefaults()); // 로그아웃 설정
 
-        return http.authorizeHttpRequests(request -> request // 인가 정책
-                .requestMatchers("/", "/member/**","/css/**").permitAll() // 루트와 /member/** 경로는 모든 사용자가 접근 가능
-                .anyRequest().authenticated() // 나머진 인증된 사용자만 접근 가능
-        ) //authorizeHttpRequests
-                .build();
-    } //filterChain
+        http.authorizeHttpRequests(request -> request // 인가 정책
+                        // 루트와 /member/** 경로는 모든 사용자가 접근 가능
+                        .requestMatchers("/", "/member/**", "/css/**").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()); //authorizeHttpRequests
+
+        http.exceptionHandling(exception -> exception
+                .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
+
+        return http.build();    } //filterChain
 
     @Bean
     public PasswordEncoder passwordEncoder() {
