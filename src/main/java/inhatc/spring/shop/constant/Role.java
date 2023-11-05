@@ -1,4 +1,4 @@
-package inhatc.spring.shop.Content;
+package inhatc.spring.shop.constant;
 
 public enum Role {
     USER, ADMIN

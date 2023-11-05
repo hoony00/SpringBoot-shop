@@ -1,6 +1,6 @@
 package inhatc.spring.shop.Entity;
 
-import inhatc.spring.shop.Content.Role;
+import inhatc.spring.shop.constant.Role;
 import inhatc.spring.shop.dto.MemberFormDto;
 import jakarta.persistence.*;
 import lombok.*;

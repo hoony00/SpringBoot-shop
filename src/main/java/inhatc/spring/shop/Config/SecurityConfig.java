@@ -29,15 +29,17 @@ public class SecurityConfig {
         http.logout(Customizer.withDefaults()); // 로그아웃 설정
 
         http.authorizeHttpRequests(request -> request // 인가 정책
-                        // 루트와 /member/** 경로는 모든 사용자가 접근 가능
-                        .requestMatchers("/", "/member/**", "/css/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()); //authorizeHttpRequests
+                // 루트와 /member/** 경로는 모든 사용자가 접근 가능
+                .requestMatchers("/css/**", "/images/**", "/js/**").permitAll()
+                .requestMatchers("/", "/member/**").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()); //authorizeHttpRequests
 
         http.exceptionHandling(exception -> exception
                 .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
 
-        return http.build();    } //filterChain
+        return http.build();
+    } //filterChain
 
     @Bean
     public PasswordEncoder passwordEncoder() {

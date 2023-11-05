@@ -59,27 +59,19 @@ public class MemberController {
 
 
     @PostMapping("/member/new")
-    public String insertMember(@Valid MemberFormDto memberformDto,
-                               BindingResult bindingResult,
-                               Model model) {
+    public String insertMember(@Valid MemberFormDto memberFormDto,
+                               BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()) {
             return "member/memberForm";
         }
-
-        try {
-            // dto 암호화
-            Member member = Member.createMember(memberformDto, passwordEncoder);
-            // 암호화된 객체를 저장
-            Member m = memberService.saveMember(member);
-            // 저장된 객체를 뷰에 전달
-            model.addAttribute("member", m);
-            log.info("member = =========>>>", m);
-
-        }catch (IllegalStateException e) {
-            model.addAttribute("errorMessage", e.getMessage());
+        try{
+            Member member = Member.createMember(memberFormDto,passwordEncoder);
+            memberService.saveMember(member);
+        }catch (IllegalStateException e){
+            model.addAttribute("errorMessage",e.getMessage());
             return "member/memberForm";
         }
-        return "redirect:/";
+        return "redirect:/"; // 회원가입 후 메인화면으로 이동
     }
 
 

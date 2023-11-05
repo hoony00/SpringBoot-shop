@@ -1,6 +1,6 @@
 package inhatc.spring.shop.Entity;
 
-import inhatc.spring.shop.Content.ItemSellStatus;
+import inhatc.spring.shop.constant.ItemSellStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
