@@ -19,7 +19,7 @@ public class SecurityConfig {
         http.formLogin(form -> form
                 .loginPage("/member/login") // 로그인 페이지
                 .defaultSuccessUrl("/") // 로그인 성공 후 이동 페이지
-                .failureForwardUrl("/member/login/error")
+                .failureUrl("/member/login/error")
                 .usernameParameter("email") // 로그인 페이지의 아이디 파라미터
                 .passwordParameter("password") // 로그인 페이지의 비밀번호 파라미터
                 .permitAll() //모든 사용자가 접근할 수 있음

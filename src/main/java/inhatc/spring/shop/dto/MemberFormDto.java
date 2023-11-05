@@ -10,6 +10,8 @@ import org.hibernate.validator.constraints.Length;
 @Data
 @Builder
 @AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
 public class MemberFormDto {
     //NotBlank 와 NotEmpty의 차이
