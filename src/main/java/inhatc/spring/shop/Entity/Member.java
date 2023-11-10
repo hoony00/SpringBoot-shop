@@ -33,6 +33,14 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    /**
+     * 회원가입을 위한 Member 객체 생성<br>
+     * memberFormDto로부터 사용자 정보를 획득한 후 password를 인코딩하여 함께 저장
+     * @param //memberFormDto
+     * @param //passwordEncoder
+     * @return Member 객체 생성 후 반환
+     */
+
     public static Member createMember(MemberFormDto memberformDto, PasswordEncoder passwordEncoder) {
 
         return Member.builder()

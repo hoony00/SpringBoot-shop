@@ -31,7 +31,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(request -> request // 인가 정책
                 // 루트와 /member/** 경로는 모든 사용자가 접근 가능
                 .requestMatchers("/css/**", "/images/**", "/js/**").permitAll()
-                .requestMatchers("/", "/member/**").permitAll()
+                .requestMatchers("/", "/member/**", "/item/**", "/images/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()); //authorizeHttpRequests
 
