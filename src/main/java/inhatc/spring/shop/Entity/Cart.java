@@ -11,6 +11,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name = "cart")
+//extends BaseEntity
 public class Cart {
 
     @Id
