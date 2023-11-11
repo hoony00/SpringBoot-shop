@@ -7,6 +7,7 @@ import inhatc.spring.shop.Entity.OrderItem;
 import inhatc.spring.shop.constant.ItemSellStatus;
 import inhatc.spring.shop.dto.MemberFormDto;
 import inhatc.spring.shop.repository.ItemRepository;
+import inhatc.spring.shop.repository.MemberRepository;
 import inhatc.spring.shop.repository.OrderRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -36,6 +37,9 @@ class MemberServiceTest {
     @PersistenceContext
     EntityManager em;
 
+    @Autowired
+    MemberRepository memberRepository;
+
     public Item createItem(){
         Item item = new Item();
         item.setItemNm("테스트 상품");
@@ -43,6 +47,7 @@ class MemberServiceTest {
         item.setItemDetail("상세설명");
         item.setItemSellStatus(ItemSellStatus.SELL);
         item.setStockNumber(100);
+
         return item;
     }
 
@@ -56,26 +61,48 @@ class MemberServiceTest {
             Item item = this.createItem();
             itemRepository.save(item);
             OrderItem orderItem = new OrderItem();
-            // orderItem에 item을 넣어줌
             orderItem.setItem(item);
             orderItem.setCount(10);
             orderItem.setOrderPrice(1000);
             orderItem.setOrder(order);
-
-            // 자식 엔티티를 부모 엔티티에 추가
             order.getOrderItems().add(orderItem);
         }
 
-        // 부모 엔티티를 저장할 때, 연관된 자식 엔티티도 저장됨 (CascadeType.ALL 설정으로)
         orderRepository.saveAndFlush(order);
         em.clear();
 
         Order savedOrder = orderRepository.findById(order.getId())
-                .orElseThrow(() -> new EntityNotFoundException("Order not found"));
+                .orElseThrow(EntityNotFoundException::new);
         assertEquals(3, savedOrder.getOrderItems().size());
-
-        System.out.println("OrderItems size: " + savedOrder.getOrderItems().size());
     }
+
+    public Order createOrder(){
+        Order order = new Order();
+        for(int i=0;i<3;i++){
+            Item item = createItem();
+            itemRepository.save(item);
+            OrderItem orderItem = new OrderItem();
+            orderItem.setItem(item);
+            orderItem.setCount(10);
+            orderItem.setOrderPrice(1000);
+            orderItem.setOrder(order);
+            order.getOrderItems().add(orderItem);
+        }
+        Member member = new Member();
+        memberRepository.save(member);
+        order.setMember(member);
+        orderRepository.save(order);
+        return order;
+    }
+
+    @Test
+    @DisplayName("고아객체 제거 테스트")
+    public void orphanRemovalTest(){
+        Order order = this.createOrder();
+        order.getOrderItems().remove(0);
+        em.flush();
+    }
+
 
 
 }
