@@ -1,6 +1,8 @@
 package inhatc.spring.shop.dto;
 
+import inhatc.spring.shop.Entity.ItemImg;
 import lombok.*;
+import org.modelmapper.ModelMapper;
 
 @Builder
 @Getter
@@ -20,9 +22,9 @@ public class ItemImgDto {
 
     private String repImgYn;        // 대표 이미지 여부
 
-    private static ModelMapper modelMapper = new ModelMapper();
+    private static ModelMapper modelMapper = new ModelMapper(); // ModelMapper 객체 생성
 
-    public static ItemImgDto of(ItemImg itemImg) {
+    public static ItemImgDto entityToDto(ItemImg itemImg) {
         return modelMapper.map(itemImg, ItemImgDto.class);
     }
 

@@ -21,6 +21,7 @@ public class MemberService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
 
+
     public Member saveMember(Member member) {
         vaildateDuplicateMember(member);
         return memberRepository.save(member);

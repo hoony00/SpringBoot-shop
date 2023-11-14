@@ -6,6 +6,7 @@ import inhatc.spring.shop.constant.ItemSellStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +35,19 @@ public class ItemFormDto {
 
     private ItemSellStatus itemSellStatus;
 
-    // private List<ItemImgDto> itemImgDtoList = new ArrayList<>();
+    private List<ItemImgDto> itemImgDtoList = new ArrayList<>();
 
+    private List<Long> itemImgIds = new ArrayList<>();
 
-   // private static ModelMapper modelMapper = new ModelMapper();
+    private static ModelMapper modelMapper = new ModelMapper();
 
+    public Item createItem() {
+        return modelMapper.map(this, Item.class);
+    }
+
+    public static ItemFormDto entityToDto(Item item) {
+        ItemFormDto itemFormDto = modelMapper.map(item, ItemFormDto.class);
+        return itemFormDto;
+    }
 
 }
