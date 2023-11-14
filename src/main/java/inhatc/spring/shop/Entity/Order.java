@@ -1,6 +1,7 @@
 package inhatc.spring.shop.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import inhatc.spring.shop.common.BaseEntity;
 import inhatc.spring.shop.constant.OrderStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

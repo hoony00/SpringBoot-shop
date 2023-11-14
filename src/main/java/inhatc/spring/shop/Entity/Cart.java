@@ -1,5 +1,6 @@
 package inhatc.spring.shop.Entity;
 
+import inhatc.spring.shop.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import lombok.*;
 @Entity
 @Table(name = "cart")
 //extends BaseEntity
-public class Cart {
+public class Cart extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

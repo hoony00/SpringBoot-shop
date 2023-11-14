@@ -1,5 +1,6 @@
 package inhatc.spring.shop.Entity;
 
+import inhatc.spring.shop.common.BaseEntity;
 import inhatc.spring.shop.constant.ItemSellStatus;
 import inhatc.spring.shop.dto.ItemFormDto;
 import jakarta.persistence.*;
@@ -18,7 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,10 @@
 package inhatc.spring.shop.Entity;
 
+import inhatc.spring.shop.common.BaseEntity;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
