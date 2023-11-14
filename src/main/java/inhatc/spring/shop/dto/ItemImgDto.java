@@ -19,4 +19,11 @@ public class ItemImgDto {
     private String imgUrl;          // 이미지 저장 경로
 
     private String repImgYn;        // 대표 이미지 여부
+
+    private static ModelMapper modelMapper = new ModelMapper();
+
+    public static ItemImgDto of(ItemImg itemImg) {
+        return modelMapper.map(itemImg, ItemImgDto.class);
+    }
+
 }
