@@ -42,7 +42,7 @@ spring: # 스프링 설정
   # 파일 업로드 설정
   ####################################
 itemImgLocation: /Users/hoony/springImg/item/    # 상품 이미지 저장 위치
-uploadPath: /Users/hoony/springImg/    # 업로드 경로root
+uploadPath: /Users/hoony/springImg/upload/    # 업로드 경로root
   ####################################
   # 파일 업로드 설정
   ####################################
